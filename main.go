@@ -25,15 +25,17 @@ func main() {
 	}
 }
 
-type TestDatabase struct {
-	Host     string `envconfig:"TESTDB_HOST" default:"127.0.0.1"`
-	Port     string `envconfig:"TESTDB_PORT" default:"3306"`
-	User     string `envconfig:"TESTDB_USER" required:"true"`
-	Password string `envconfig:"TESTDB_PASSWORD" required:"true"`
+const prefix = "TESTDB"
+
+type Specification struct {
+	Host     string `envconfig:"HOST" default:"127.0.0.1"`
+	Port     string `envconfig:"PORT" default:"3306"`
+	User     string `envconfig:"USER" required:"true"`
+	Password string `envconfig:"PASSWORD" required:"true"`
 }
 
 // Config creates a new mysql.Config from a TestDatabase
-func (s TestDatabase) Config() *mysql.Config {
+func (s Specification) Config() *mysql.Config {
 	conf := mysql.NewConfig()
 
 	conf.Addr = s.Host + ":" + s.Port
@@ -57,9 +59,16 @@ func Command(ctx context.Context) *cobra.Command {
 		Use:   "prunedb",
 		Short: "Drop lingering test databases",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			var s TestDatabase
+			var s Specification
 
-			envconfig.MustProcess("", &s)
+			err := envconfig.Process(prefix, &s)
+			if err != nil {
+				fmt.Println(err)
+
+				envconfig.Usage(prefix, &s)
+
+				os.Exit(1)
+			}
 
 			conf := s.Config()
 
