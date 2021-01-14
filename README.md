@@ -3,7 +3,7 @@
 
 [![Go
 Reference](https://pkg.go.dev/badge/github.com/wayneashleyberry/prunedb.svg)](https://pkg.go.dev/github.com/wayneashleyberry/prunedb)
-![Go](https://github.com/wayneashleyberry/prunedb/workflows/Go/badge.svg)
+![build](https://github.com/wayneashleyberry/prunedb/workflows/build/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/wayneashleyberry/prunedb)](https://goreportcard.com/report/github.com/wayneashleyberry/prunedb)
 
 ```sh
