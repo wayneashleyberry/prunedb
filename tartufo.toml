@@ -1,0 +1,7 @@
+[tool.tartufo]
+repo-path = "."
+cleanup = true
+regex = true
+entropy = true
+exclude-paths = ".tartufo-excludes"
+exclude-signatures = []
