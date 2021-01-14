@@ -1,4 +1,4 @@
-> command `prunedb` will drop databases that being with the `test_` prefix.
+> command `prunedb` will drop mysql databases that being with the `test_` prefix.
 
 ```sh
 Drop lingering test databases
