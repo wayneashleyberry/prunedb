@@ -15,10 +15,9 @@ go get github.com/wayneashleyberry/prunedb
 
 ### Configuration
 
-```sh
-This application is configured via the environment. The following environment
-variables can be used:
+This application is configured via the environment. The following environment variables can be used:
 
+```sh
 KEY                TYPE      DEFAULT      REQUIRED    DESCRIPTION
 TESTDB_HOST        String    127.0.0.1
 TESTDB_PORT        String    3306
