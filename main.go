@@ -65,7 +65,7 @@ func Command(ctx context.Context) *cobra.Command {
 			if err != nil {
 				fmt.Println(err)
 
-				envconfig.Usage(prefix, &s)
+				_ = envconfig.Usage(prefix, &s)
 
 				os.Exit(1)
 			}
